@@ -4,23 +4,17 @@
 //3-)We have global object instead of window object
 //4-)Common JS modules(require) instaed of ES6 modules(import)
 
+//Here I used math object to reach function
 const math = require('./math');
-console.log(math);
+console.log(math.add(2, 1));
+console.log(math.substract(2, 1));
+console.log(math.mutlipy(2 ,1));
+console.log(math.divide(2 ,1));
 
-// const os = require('os'); //Operating System
-// console.log(os.arch()); //return proccesror arm64
-// console.log(os.version()); //Returns a string identifying the kernel version. Darwin Kernel Version 23.2.0: Wed Nov 15 21:53:34 PST 2023; root:xnu-10002.61.3~2/RELEASE_ARM64_T8103
-// console.log(os.type()); //Returns the operating system name Darwin
-// console.log(os.homedir());///Users/fethicansert
-
-
-// console.log(__dirname);  //Current file parent dir name /Users/fethicansert/Desktop/NodeJS_Beginner
-// console.log(__filename); //Current file name /Users/fethicansert/Desktop/NodeJS_Beginner/server.js
-
-const path = require('path');
-// console.log(path.basename(__filename)); //it's return base name of given path Desktop/NodeJS_Beginner/server.js => server.js
-// console.log(path.dirname(__filename)); //returns direcotry of given filepath
-// console.log(path.extname(__filename)); //server.js => .js extension name
-
-console.log(path.parse(__filename)); //create a objectt that hold properties of given path (root, dir, base, ext, name);
+//Here I destructured the math module to use the function
+const { add, substract, mutlipy, divide } = require('./math'); // returns object that has our functions
+console.log(add(2, 1));
+console.log(substract(2, 1));
+console.log(mutlipy(2, 1));
+console.log(divide(2 ,1));
 

@@ -1,7 +1,10 @@
-const add = (a, b) => a + b;
-const substract = (a, b) => a - b;
-const mutlipy = (a, b) => a * b;
-const divide = (a, b) => a / b;
+exports.add = (a, b) => a + b;
+exports.substract = (a, b) => a - b;
+exports.mutlipy = (a, b) => a * b;
+exports.divide = (a, b) => a / b;
 
 
-module.exports = { add, substract, mutlipy, divide}
+// module.exports = { add, substract, mutlipy, divide}
+
+
+//functionlarin basina exports. koyarakta export edebiliirz
