@@ -29,7 +29,7 @@ function writeText(){
     appendText();
 }
 
-async function appendText() {
+function appendText() {
     appendFile(path.join(__dirname, 'write.txt'), 'Hello Boyzzz', (err) => {
         if (err) throw err;
         console.log("Append Completed");
@@ -37,11 +37,12 @@ async function appendText() {
 }
 
 
-
 readText();
 writeText();
+appendText();
+renameText('renamed-text');
 
-
+//Not working well beacuse this functions are asyn but i can't use beuace they are not returning promise
 
 
 
