@@ -1,25 +1,28 @@
-//nodemon restart app when we change something and save CTLR+S
-// package.json gitignore a koyulmaz cunku git clone yapipi npm i yaptgimizda package.json okunup ona gore packetler kurulur indirilir
-const { format, longFormatters }  = require('date-fns');
-const { v4 } = require('uuid');
+const logEvents = require('./logEvents');
 
+const EventEmitter = require('events');
 
-const user = {
-    id: v4(),
-    name: 'BOB MARLEY'
+//EvenEmiiter imitated the EventListiner
+//initialize object
+const myEmmitter = new EventEmitter();
+
+//add listiner for the log event
+myEmmitter.on('log',(msg) => logEvents(msg)); //create event it's goint to be executed when is triggered with emit
+
+myEmmitter.on('click', (msg) => doSomething()); //Like creating eventListiner =>
+
+const doSomething = () => {
+    //Doing Something hahaha :)
+    console.log("Doing Something");
 }
 
+setTimeout(() => {
+    myEmmitter.emit('log', 'Log event emitted');
+    // myEmmitter.emit('click'); 
+    // console.log(myEmmitter.emit('touch')); //will return false beacuse no touch evetlistiner created
+},1000);
 
-console.log(user);
-console.log(format(new Date(), 'yyyyMMdd\tHH:mm:sss'));
+// emit is used to trigger an event
+// on is used to add a callback function that's going to be executed when the event is triggered
 
-
-// "dependencies" = {
-//     "date-fns": "~3.3.1",  //~ only update patch version
-//     "uuid": "^9.0.1" //version numaralarinin ilki major numarasi 9 bir sonraki minor 0 ve son patch numarasi 1
-//   }                  //en ondeki ^ isaret minor updatele ama major degistirme demektir onu degismemiz update sonrasi sorunlara yok acabilirs
-
-//   //npm install uuid@8.9.0 dowloading specific version
-
-//npm rm - uninstall for delete depenedencies
-//We should use -D if devDependecies or -g to globel package
+//emitter.on ile listiner ekledigimizi emit ile ise
