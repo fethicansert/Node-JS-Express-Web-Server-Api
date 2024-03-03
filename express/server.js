@@ -46,28 +46,13 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public'))); //it's use serve-static node package
 
 
-//express automaticly send status code and content type
-app.get('^/$|/index(.html)?', (req, res) => { 
-    //videodaki gibi yap sonra documentationa cevir kaz !!!
-    res.sendFile(path.join(__dirname, 'views', 'index.html')); //__dirname if this file express/views
-});
+app.use('/', require('./routes/roots')); //root '/' uzerinden gelen requestlere bak localhost:8000/bla.html
 
-app.get('/new-page(.html)?',(req, res) => {
-    res.sendFile(path.join(__dirname, 'views', 'new-page.html')); //__dirname if this file express/views
-});
+app.use('/subdir', require('./routes/subdir')); // 'subdir' uzerinden gelen url'ye bak localhost:8000/subdir/bla.html
 
-//if page old than redirect new page
-app.get('/old-page(.html)?',(req, res) => {
-    res.redirect(301, '/new-page.html'); //status code 302 default
-});
+app.use('/employees', require('./routes/api/employees')); //go employees file and check if url match to routers than to do job
 
-//Route Handlers
-app.get('/hello(.html)?', (req, res, next) => {
-    console.log("Getting Hello Atemmted");
-    next();
-}, (req, res) => {
-    res.send("Hello Hell Niga");
-});
+
 
 //custom 404 page app.all() for routing I dind't use app.use() beacuse it's for middleware function
 //all is can used for all method get post delete
@@ -87,26 +72,6 @@ app.use(errorHandler);
 
 app.listen(PORT ,() => console.log(`Server running on port ${PORT}`));
 
-
-//////
-
-//chaning route handlers
-const one = (req, res, next) => {
-    console.log('one');
-    next();
-}
-
-const two = (req, res, next) => {
-    console.log('two');
-    next();
-}
-
-const three = (req, res) => {
-    console.log('three');
-    res.send("Finineshed");
-}
-
-app.get('/chain(.html)?', [one, two, three]);
 
 //? What happend if requested file not found ?
 //Expres send html file with <p>Cannot GET /"requestede file name"</p>
@@ -171,6 +136,7 @@ app.get('/chain(.html)?', [one, two, three]);
 
 //What happend if I don't use errorHandler ?
 //app.use((err, req, res, next) => errorHandler(err, req, res, next)); This one
+//Express automaticly handle error and error file
 
 //What is app ?
 
@@ -187,4 +153,76 @@ app.get('/chain(.html)?', [one, two, three]);
 //Midleware function needs to use next not route functions
 
 
+//main server file uzerinde asagidaki gibi kalabalik yapmamak icin nasil bi method uygulayabilirz
+
+//express automaticly send status code and content type
+// app.get('^/$|/index(.html)?', (req, res) => { 
+//     //videodaki gibi yap sonra documentationa cevir kaz !!!
+//     res.sendFile(path.join(__dirname, 'views', 'index.html')); //__dirname if this file express/views
+// });
+
+// app.get('/new-page(.html)?',(req, res) => {
+//     res.sendFile(path.join(__dirname, 'views', 'new-page.html')); //__dirname if this file express/views
+// });
+
+// //if page old than redirect new page
+// app.get('/old-page(.html)?',(req, res) => {
+//     res.redirect(301, '/new-page.html'); //status code 302 default
+// });
+
+//Ayri bi route.js olustur orda expressden new router object olustur  // const router = express.Router()
+//routing kodlarini oraya yaz router.get('bla bla', (blaFunction to handler route))
+//en sonda module.export ile router exportla module.exports = router
+//main server file da kullan app.use('/', require('bla bla path/router));
+
+/////////////////////////////////////////////////
+
+
+//Why we use .route ?
+
+//Beacuse if we don't we have to write like this
+
+// router.get('path', Do something)
+// router.post('path', Do something)
+// router.put('path', Do someting)
+// router.delete('path', Do something)
+
+//we can use just route and . to write all of them wtih  clean and less code
+
+
+//what res.json() do ?
+//Sends a JSON response. 
+//This method sends a response (with the correct content-type)
+//that is the parameter converted to a JSON string using JSON.stringify().
+
+//what JSON.stringfy do ?
+//The JSON.stringify() method converts JavaScript objects into strings.
+//When sending data to a web server the data has to be a string.
+
+//it's converts JS object to json(string)
+//Data should be in string format when exchanging data!!!
+
+
+//app.use(express.json()); bu olmayince request teki body data gozukmuyor neden ?
+//Cunku bu middleware function requestden gelen json payloadi parseliyor
+//Parse incoming request bodies in a middleware before your handlers get req
+//Bu nedenler en yukari yaziliyor oncelikle req.body parselanmali!!!
+
+//What express.json do ? for handling with json we need expres.json I don't know how it's work but we need !
+//This is a built-in middleware function in Express. 
+//It parses incoming requests with JSON payloads and is based on body-parser.
+//request ile gelen JSON payloadslari parselar
+//Normalde bi yerden serve data geldiginde string halidedir ve onu kullanabilmem icin js objectte cevirmem gerekir.
+//Bunun icin res.json kullanilir ama biz direkt req.body.propertiName kullaniyoruz bi expree.json() sayesinde diye
+//dusunuyorum
+
+
+//Explain obj.entries and for(const value in obj) ?
+
+//obj.entries loop on obj and return key and value pairs in array
+//const obj = { name: 'zizi',lastname: 'zozo',age: 100 }
+//Object.entries(obj)
+//[ [ 'name', 'zizi' ], [ 'lastname', 'zozo' ], [ 'age', 100 ] ]
+
+//for(const key in obj) ile objenin keylerini loop yapabilirz ve bunun sayesinde obj[key] ile obj iceriklerine erisebiliriz
 

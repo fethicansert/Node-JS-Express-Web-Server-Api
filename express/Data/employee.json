@@ -1,0 +1,16 @@
+{
+    "employees" : [
+        {
+            "id":1,
+            "first_name" : "Meryem",
+            "last_name" : "Ozgazi",
+            "age" : 48
+        },
+        {
+            "ig" : 2,
+            "name" : "Fethi",
+            "last_name": "Sert",
+            "age" : 25
+        }
+    ]
+}

@@ -27,3 +27,19 @@ log_id: 05269b42-a790-4a28-bb96-da6fa085912f log_time: 2024/02/28-20:59:00 log_m
 log_id: 8a346a9d-c077-4716-8625-153493bfd283 log_time: 2024/02/28-20:59:05 log_message: TypeError res.senStatus is not a function
 log_id: 874bbf2b-9cee-4c53-b894-6b9846645a13 log_time: 2024/02/28-20:59:15 log_message: Error Can't set headers after they are sent.
 log_id: d134d12c-ec33-4161-b73b-4fc6db8f9605 log_time: 2024/02/28-20:59:16 log_message: Error Can't set headers after they are sent.
+log_id: 17899079-3eb3-4d2a-b4bd-aeb34feea465 log_time: 2024/03/02-12:17:14 log_message: Error Not allowed by CORS
+log_id: 3e64805c-8bdd-49b9-ac02-f39017d7abae log_time: 2024/03/02-12:17:14 log_message: Error Not allowed by CORS
+log_id: 77ce4d7a-f81c-4be3-ba28-ae20c9422db6 log_time: 2024/03/02-12:17:40 log_message: Error Not allowed by CORS
+log_id: 55c51759-b983-4fe4-b717-d2f918e98197 log_time: 2024/03/02-12:17:40 log_message: Error Not allowed by CORS
+log_id: ce9de4fc-d87f-4541-bb1c-2ae92689044b log_time: 2024/03/02-13:44:14 log_message: TypeError req.body.json is not a function
+log_id: 0e0b0313-eb4c-4a3b-9f2d-beee0eb4c12c log_time: 2024/03/02-13:51:33 log_message: TypeError Object.getOwnPropertyNames(...).replaceAll is not a function
+log_id: 128effbc-2ead-4305-ac0c-f342424189ac log_time: 2024/03/02-14:00:32 log_message: TypeError Cannot convert undefined or null to object
+log_id: 6f66d05e-93f9-490b-a0fe-8fffac39818c log_time: 2024/03/02-14:02:07 log_message: ReferenceError k is not defined
+log_id: db97978e-bd25-4987-9a4c-73e4a5d938fa log_time: 2024/03/02-15:39:00 log_message: Error Not allowed by CORS
+log_id: ce0847e1-9d5c-47d2-a43c-9c208ba2ebad log_time: 2024/03/02-15:39:00 log_message: Error Not allowed by CORS
+log_id: 8b06a747-aa03-4188-b220-80138efd2d8b log_time: 2024/03/02-15:39:41 log_message: Error Not allowed by CORS
+log_id: 2975bc78-6864-4358-87c5-b8eea734f1d9 log_time: 2024/03/02-15:39:41 log_message: Error Not allowed by CORS
+log_id: c28be074-f328-4ceb-91bb-356cabc7f92d log_time: 2024/03/02-15:40:25 log_message: Error Not allowed by CORS
+log_id: f3e6fca0-1fda-4698-a599-11f4f8763680 log_time: 2024/03/02-15:40:25 log_message: Error Not allowed by CORS
+log_id: 484a9614-b67a-4492-891f-1e3626e38812 log_time: 2024/03/02-15:40:49 log_message: Error Not allowed by CORS
+log_id: 082aa965-cd62-49a3-99a6-240bdf06c3df log_time: 2024/03/02-15:40:49 log_message: Error Not allowed by CORS
