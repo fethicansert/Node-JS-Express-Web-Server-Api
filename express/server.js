@@ -1,72 +1,38 @@
 const express = require('express');
-const app = express();  //Create express application
+const app = express();         //Create express application
 const path = require('path');
-var cors = require('cors');
+const cors = require('cors');
 const  { logger }  = require('./middleware/logEvents');
 const errorHandler = require('./middleware/errorHandler');
-
-
+const corsOptions = require('./config/corsOptions');
+const notFoundHandler = require('./middleware/notFoundHandler');
 const PORT = process.env.PORT || 3166;
 
-//last one for ex of if I have react-app running on port localhost  port 5000  and I want take data from my back-end server
-const whiteList = ['https://www.google.com', 'https://www.youtube.com', 'https//127.0.0.1:5000', 'https://moodle.ciu.edu.tr']; 
- 
-//Configuring CORS w/ Dynamic Origin
-const corsOptions = {
-    origin: (origin, callback) => {
-        if( whiteList.indexOf(origin) !== -1 || !origin ) {  //checks if origin is in the whitelist
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS')); // Express will catch this on its own.
-        }
-    },
-    optionsSuccessStatus: 200 
-}
 
-//I have middleware stack : use(myfunc) => use(express.urlencoded) => use(express.json()) => use(expres.static) => app.get()
-// I have to use next() to jump one middlware function to another
-
-//custom middleware logger
-//app use takes a funtion to handle with request(handler function dappppp!)
+//write all request logs 
 app.use(logger);
 
-//CORS Cross Origin Resource Sharing
-app.use(cors(corsOptions)); //enable all cors request
+//enable all CORS(Cross Orgin Resource Sharing) request which orgins in whitelist
+app.use(cors(corsOptions)); 
 
-//build-in middleware to handle urlencoded data
-//which content type is:
-//'Content-Type' : 'application/x-www-form-urlencoded'
-app.use(express.urlencoded({ extended: false })); //build in function use next in side of them
+//server form-data
+app.use(express.urlencoded({ extended: false })); 
 
-//serve json files
+//serve json files => parses request body
 app.use(express.json());
 
+//serve static files like css image and javascript file => it's use serve-static node package
+app.use('/', express.static(path.join(__dirname, 'public'))); 
 
-//serve static files like css image and javascript file
-app.use(express.static(path.join(__dirname, 'public'))); //it's use serve-static node package
+//routing all request comging to  root '/' => localhost:8000/ = localhost:8000/new-page ...
+app.use('/', require('./routes/root')); 
 
+//routin all request coming to employees
+app.use('/employees', require('./routes/api/employees')); 
 
-app.use('/', require('./routes/roots')); //root '/' uzerinden gelen requestlere bak localhost:8000/bla.html
-
-app.use('/subdir', require('./routes/subdir')); // 'subdir' uzerinden gelen url'ye bak localhost:8000/subdir/bla.html
-
-app.use('/employees', require('./routes/api/employees')); //go employees file and check if url match to routers than to do job
-
-
-
-//custom 404 page app.all() for routing I dind't use app.use() beacuse it's for middleware function
-//all is can used for all method get post delete
-
-app.all('*',(req, res) => { 
-    res.status(404);
-    if(req.accepts('html')) {
-        res.sendFile(path.join(__dirname, 'views', '404.html'));
-    } else if(req.accepts('json')) {
-        res.json({error: '404 Not Found'});
-    } else {
-        res.type('txt').send('404 Not Found');
-    }
-});
+//we use .all instead .use beaucse .all for routing and  for all methods(get,post,put and delete)
+//checks all type of requsts if request url not macth to routers send '404 Not Found '
+app.all('*', notFoundHandler);  
 
 app.use(errorHandler);
 
@@ -112,8 +78,10 @@ app.listen(PORT ,() => console.log(`Server running on port ${PORT}`));
 
 //What is origin ?
 //localhost:3400 it's orgin and www.google.com is origin orgin istegin ne uzerinden yapildigini gosterir
+//Origin Sourece of Request Who making this request
 
-//What is CORS (Cross-Origin-Resource-Sharing)
+//What is CORS (Cross-Origin-Resource-Sharing) ans SOP(Sama-Origin-Policy)
+//CORS give as options to relax SOP
 
 //How enable all cors request and how enable specific middleware function - sinnle route
 
@@ -126,6 +94,11 @@ app.listen(PORT ,() => console.log(`Server running on port ${PORT}`));
 
 
 //what is arr.indexOf() function does ?
+//indexOf argument olarak verilen degerin index degerini dondurur eger verilen argument array iciderinde yoksa -1 donder
+//indexOf ile belirli bi degerin array icinde var olup olmadigini check edebiliriz
+//const arr = ['apple', 'banana', 'orange']
+//arr.indexOf('banana) => 1 yes :(
+//arr.indexOf('dragonfruit') => -1 no :)
 
 //Neden origin undefined doner ?
 //Bunun nedeni bulundgumuz serverden ayni servere istek atmamizdir
@@ -202,20 +175,9 @@ app.listen(PORT ,() => console.log(`Server running on port ${PORT}`));
 //it's converts JS object to json(string)
 //Data should be in string format when exchanging data!!!
 
-
-//app.use(express.json()); bu olmayince request teki body data gozukmuyor neden ?
-//Cunku bu middleware function requestden gelen json payloadi parseliyor
-//Parse incoming request bodies in a middleware before your handlers get req
-//Bu nedenler en yukari yaziliyor oncelikle req.body parselanmali!!!
-
 //What express.json do ? for handling with json we need expres.json I don't know how it's work but we need !
-//This is a built-in middleware function in Express. 
-//It parses incoming requests with JSON payloads and is based on body-parser.
-//request ile gelen JSON payloadslari parselar
-//Normalde bi yerden serve data geldiginde string halidedir ve onu kullanabilmem icin js objectte cevirmem gerekir.
-//Bunun icin res.json kullanilir ama biz direkt req.body.propertiName kullaniyoruz bi expree.json() sayesinde diye
-//dusunuyorum
-
+//It's parse incoming request json payload (body) than we don't needed to parse manualy
+//We can use req.body directly
 
 //Explain obj.entries and for(const value in obj) ?
 
@@ -226,3 +188,41 @@ app.listen(PORT ,() => console.log(`Server running on port ${PORT}`));
 
 //for(const key in obj) ile objenin keylerini loop yapabilirz ve bunun sayesinde obj[key] ile obj iceriklerine erisebiliriz
 
+//Why I sending status code (404) to browser if don't what happend;
+//We have to send 404 to inform browser request is not success
+//Also software can use this status code to decide if request is suc or not
+
+//What is whitelist why we need cors (CROSS ORGIN RESOURCE SHARING)
+
+
+
+//Create object has function in it?
+//like this 
+// const data = {
+//     employees: require('../model/employee.json'),
+//     setEmployeess: function(data){ this.employees = data }
+// };
+
+
+//What is 404 status code where to use it ? check employeeController I used there
+
+
+//what arr.find() finction do ?
+
+//find verilen statemente gore array itemlerini kontrol eder ve statemente uyan ilk elemeni dondurur
+//[1,2,3,4,5,6].find(item => item > 5) => 6 donecektir
+//[1,2,3,4,5,6,7].find(item => item > 5) => 6 donecektir cunku statementte uyan ilk elementi dondurur
+
+
+//How sort method works ? sort default asscending cogalan - azdan coga
+//if I use string in array like => ["Fethi", "Ahmet", "Zeynep", "Burak"] 
+//sort function look for utf-16 code units order
+//for strings it's okay it going to give => ["Ahemt", "Burak", "Fethi", "Zeynep"]
+
+//if I use numbers [74, 18, 10, 5, 84, 24, 105]
+//and use sort() we going to have [10, 105, 18, 24, 5, 74, 84] 
+//we don't want this it's happend cuase we don't give sort function if we don't give sort function 
+//sort will return all arr items to string than you can relazie why 105 smaller than 18
+//When we compare 105 to 18 in string check fisrt '1' to '1' same than '0' to '8',  0 is small than it means 105 small :)
+
+//How arr.some() how .some() works?

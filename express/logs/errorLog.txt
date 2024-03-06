@@ -43,3 +43,20 @@ log_id: c28be074-f328-4ceb-91bb-356cabc7f92d log_time: 2024/03/02-15:40:25 log_m
 log_id: f3e6fca0-1fda-4698-a599-11f4f8763680 log_time: 2024/03/02-15:40:25 log_message: Error Not allowed by CORS
 log_id: 484a9614-b67a-4492-891f-1e3626e38812 log_time: 2024/03/02-15:40:49 log_message: Error Not allowed by CORS
 log_id: 082aa965-cd62-49a3-99a6-240bdf06c3df log_time: 2024/03/02-15:40:49 log_message: Error Not allowed by CORS
+log_id: cf5e64c7-ae07-4a89-95f7-5fbbbe343ec8 log_time: 2024/03/03-19:03:49 log_message: ReferenceError onsole is not defined
+log_id: e2931e6c-f9b8-459a-971b-0e11e54ab07c log_time: 2024/03/03-21:45:32 log_message: TypeError req.accept is not a function
+log_id: bb17cdd0-c80a-42c4-9dcb-5245afe987d5 log_time: 2024/03/03-21:45:54 log_message: TypeError req.accept is not a function
+log_id: 06912816-9ed5-4cad-ba87-efacd1a2e6bc log_time: 2024/03/03-21:46:09 log_message: TypeError req.accept is not a function
+log_id: f672c2ae-72e5-460e-b9df-4ebf131034d9 log_time: 2024/03/03-22:09:41 log_message: TypeError req.accept is not a function
+log_id: 7cb09082-8fba-4ef1-9708-59f1595d87c0 log_time: 2024/03/04-00:16:03 log_message: Error Not allowed by COORS
+log_id: a6be60f9-6275-472f-baea-4b3c9e215e3e log_time: 2024/03/04-00:16:19 log_message: Error Not allowed by COORS
+log_id: cbc803b2-9036-40bd-898e-dfb20434c9ef log_time: 2024/03/04-00:16:19 log_message: Error Not allowed by COORS
+log_id: 842a808e-0113-46d9-a2d7-b12f9b83beb7 log_time: 2024/03/04-14:25:18 log_message: Error Cannot set headers after they are sent to the client
+log_id: 741da253-308e-4fcc-a8db-9f6e58d83c55 log_time: 2024/03/04-15:02:46 log_message: SyntaxError Expected ',' or '}' after property value in JSON at position 13 (line 3 column 3)
+log_id: 3ec29e1c-5a3f-4781-a605-92cd8afeaf58 log_time: 2024/03/04-15:16:07 log_message: ReferenceError updatedEmployee is not defined
+log_id: df504091-3268-4387-8217-8871ccf1b239 log_time: 2024/03/04-17:16:27 log_message: SyntaxError Expected ',' or '}' after property value in JSON at position 13 (line 3 column 3)
+log_id: 687189b9-970c-46af-a55d-d1f4389b473d log_time: 2024/03/04-17:17:39 log_message: TypeError Assignment to constant variable.
+log_id: b279e419-7c4b-4c09-8c81-ccbd0f41f3ea log_time: 2024/03/04-17:53:05 log_message: SyntaxError Expected double-quoted property name in JSON at position 13 (line 3 column 1)
+log_id: 05cff261-d800-4d81-8aa2-68d6b0006b8d log_time: 2024/03/05-17:49:44 log_message: Error Cannot set headers after they are sent to the client
+log_id: dc5ecdf4-c2f9-43b3-9f08-5cc0ee700599 log_time: 2024/03/05-17:50:53 log_message: Error Cannot set headers after they are sent to the client
+log_id: 933c9f52-f673-439f-a57f-48cff1c975c2 log_time: 2024/03/05-22:50:08 log_message: SyntaxError Expected ',' or '}' after property value in JSON at position 14 (line 3 column 3)

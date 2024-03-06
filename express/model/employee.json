@@ -1,0 +1,22 @@
+[
+        {
+            "id":1,
+            "firstname" : "Meryem",
+            "lastname" : "Ozgazi",
+            "age" : 48
+        },
+        {
+            "id" : 2,
+            "firstname" : "Fethi",
+            "lastname": "Sert",
+            "age" : 25
+        },
+        {
+            "id" : 3,
+            "firstname" : "Ali",
+            "lastname": "Karadamar",
+            "age" : 20
+        }
+]
+
+
