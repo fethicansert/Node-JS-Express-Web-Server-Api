@@ -60,3 +60,118 @@ log_id: b279e419-7c4b-4c09-8c81-ccbd0f41f3ea log_time: 2024/03/04-17:53:05 log_m
 log_id: 05cff261-d800-4d81-8aa2-68d6b0006b8d log_time: 2024/03/05-17:49:44 log_message: Error Cannot set headers after they are sent to the client
 log_id: dc5ecdf4-c2f9-43b3-9f08-5cc0ee700599 log_time: 2024/03/05-17:50:53 log_message: Error Cannot set headers after they are sent to the client
 log_id: 933c9f52-f673-439f-a57f-48cff1c975c2 log_time: 2024/03/05-22:50:08 log_message: SyntaxError Expected ',' or '}' after property value in JSON at position 14 (line 3 column 3)
+log_id: 66b9ebfd-bed8-4bbe-a267-42b0f37f3021 log_time: 2024/03/11-10:52:26 log_message: Error Not allowed by COORS
+log_id: 744d9e9a-f728-4c34-9814-ae5a04e97c85 log_time: 2024/03/11-10:53:35 log_message: Error Not allowed by COORS
+log_id: fd901506-0ae0-406d-aaca-feb821f71938 log_time: 2024/03/11-10:53:55 log_message: Error Not allowed by COORS
+log_id: 4149fd1f-eb56-4b7b-b98a-659f53edd875 log_time: 2024/03/11-10:54:58 log_message: Error Not allowed by COORS
+log_id: 62f21f32-efc8-428f-a4cf-36a8c330855c log_time: 2024/03/11-12:49:18 log_message: Error Cannot set headers after they are sent to the client
+log_id: d6b492b1-b558-48ef-95bb-9336b9a84963 log_time: 2024/03/11-12:52:44 log_message: Error Cannot set headers after they are sent to the client
+log_id: 8e55bb84-7793-4d2e-a9ab-557d50ba60e7 log_time: 2024/03/11-17:00:50 log_message: TypeError res.senStatus is not a function
+log_id: fb0ede11-a3d7-4665-b143-66838610c3bc log_time: 2024/03/11-17:00:54 log_message: TypeError res.senStatus is not a function
+log_id: 6f42c6f1-32a3-4816-bc95-0986d611c467 log_time: 2024/03/11-17:00:55 log_message: TypeError res.senStatus is not a function
+log_id: 0d7f0087-f083-481a-bcde-2502198aefd6 log_time: 2024/03/11-17:00:55 log_message: TypeError res.senStatus is not a function
+log_id: 397da679-e707-4e50-8100-fa0eeadd83e6 log_time: 2024/03/11-17:00:55 log_message: TypeError res.senStatus is not a function
+log_id: c620e520-423c-499c-9f5d-2f09216c673c log_time: 2024/03/11-17:00:56 log_message: TypeError res.senStatus is not a function
+log_id: 88a160db-14dc-44f3-8789-65d4c797e1f8 log_time: 2024/03/18-11:27:45 log_message: ReferenceError whiteList is not defined
+log_id: 9981f48c-6012-4226-ab46-23c4698b7944 log_time: 2024/03/18-11:27:45 log_message: ReferenceError whiteList is not defined
+log_id: 05bf9a6c-9d3d-4847-9641-a95246c397c4 log_time: 2024/03/19-12:02:20 log_message: Error Not allowed by COORS
+log_id: 55ffdaea-f3a2-4284-bf67-6882946f0558 log_time: 2024/03/19-12:02:20 log_message: Error Not allowed by COORS
+log_id: 29fdc7d4-27a0-48ef-b0bc-7243eef48286 log_time: 2024/03/19-12:02:21 log_message: Error Not allowed by COORS
+log_id: b10bf092-8313-4080-946b-a397f262390d log_time: 2024/03/19-12:02:21 log_message: Error Not allowed by COORS
+log_id: e75c90e1-a8de-4074-ada3-2d50e38df304 log_time: 2024/03/19-12:02:21 log_message: Error Not allowed by COORS
+log_id: 3f8528d4-5eb5-4cf7-86b3-f1e29e27707f log_time: 2024/03/19-12:02:21 log_message: Error Not allowed by COORS
+log_id: 4195c9f6-5802-4a0c-bdd0-3a990b9fa446 log_time: 2024/03/19-12:02:22 log_message: Error Not allowed by COORS
+log_id: 6dbf9e7c-ecef-4d43-9ccf-e053fac4e67f log_time: 2024/03/19-12:02:22 log_message: Error Not allowed by COORS
+log_id: 24a1f782-5e2b-4e18-a82f-8fb64bddf337 log_time: 2024/03/19-12:02:22 log_message: Error Not allowed by COORS
+log_id: a1230c83-cde4-45db-a9fc-dc0bb3fbb1f4 log_time: 2024/03/19-12:02:22 log_message: Error Not allowed by COORS
+log_id: e6367614-922f-4a4b-84bd-562069c7d328 log_time: 2024/03/19-12:02:22 log_message: Error Not allowed by COORS
+log_id: a32d72bf-ac4d-47ef-aec3-e2676709c1b3 log_time: 2024/03/19-12:02:23 log_message: Error Not allowed by COORS
+log_id: 18d08a77-edc5-4b27-b20e-fb8351ecc4d3 log_time: 2024/03/19-12:02:23 log_message: Error Not allowed by COORS
+log_id: 9bdfa057-7e0a-4f6d-bbcd-1b66724e7156 log_time: 2024/03/19-12:02:23 log_message: Error Not allowed by COORS
+log_id: 87fa65b6-849d-4f29-bb49-4cb093e23641 log_time: 2024/03/19-12:02:23 log_message: Error Not allowed by COORS
+log_id: 9e487dc3-bbc9-4211-8567-8627f934d5e6 log_time: 2024/03/19-12:02:23 log_message: Error Not allowed by COORS
+log_id: 74062321-c27a-4b65-826f-3563ce61be0d log_time: 2024/03/19-12:02:24 log_message: Error Not allowed by COORS
+log_id: ac011e9f-d377-4b50-8cee-a2cc9cadecba log_time: 2024/03/19-12:02:24 log_message: Error Not allowed by COORS
+log_id: e549ba9f-60c3-4912-a4da-0a4e9841a978 log_time: 2024/03/19-12:02:24 log_message: Error Not allowed by COORS
+log_id: afb6aaf5-d8ef-4ef0-9df0-5d2e2eb5ed26 log_time: 2024/03/19-12:02:24 log_message: Error Not allowed by COORS
+log_id: eff5ea3f-176f-4b42-b6cb-464edb5051ce log_time: 2024/03/19-12:02:24 log_message: Error Not allowed by COORS
+log_id: 786fb205-86a4-445b-814a-1ca4b88ebfb0 log_time: 2024/03/19-12:02:25 log_message: Error Not allowed by COORS
+log_id: 312ce963-8f79-45e4-a90e-66be86a1ca48 log_time: 2024/03/19-12:02:25 log_message: Error Not allowed by COORS
+log_id: a712c218-0094-4640-b7ce-685e6a48312f log_time: 2024/03/19-12:02:25 log_message: Error Not allowed by COORS
+log_id: 3906be1a-5ee2-42cc-b3ea-aa7c779db0e4 log_time: 2024/03/19-12:02:25 log_message: Error Not allowed by COORS
+log_id: b1b27f7a-df7e-4025-83b6-b246f2bd9160 log_time: 2024/03/20-13:07:32 log_message: ReferenceError authHeader is not defined
+log_id: 6a392593-79c1-4cf9-af0a-7ed937f7d67d log_time: 2024/03/20-13:13:29 log_message: ReferenceError authHeader is not defined
+log_id: 7215f866-55c2-4e66-ac15-c7bca2940fef log_time: 2024/03/20-13:13:30 log_message: ReferenceError authHeader is not defined
+log_id: 8ed82d1f-a0ad-419a-946a-cc9ef72240fe log_time: 2024/03/20-13:13:41 log_message: ReferenceError authHeader is not defined
+log_id: ce946a9c-108a-4fcd-bfe6-67820a4d9c36 log_time: 2024/03/20-13:13:41 log_message: ReferenceError authHeader is not defined
+log_id: f0408687-23c9-4a61-b59d-96c3f16d5c88 log_time: 2024/03/20-13:13:44 log_message: ReferenceError authHeader is not defined
+log_id: 2503576d-2d14-444d-8c51-989c86b6b32c log_time: 2024/03/20-13:13:44 log_message: ReferenceError authHeader is not defined
+log_id: 0bfbfc7f-d23f-48b1-ad24-1ad16372788e log_time: 2024/03/20-13:13:44 log_message: ReferenceError authHeader is not defined
+log_id: 2af1ae66-a055-4c90-8362-2a896e4171c2 log_time: 2024/03/20-13:14:01 log_message: ReferenceError authHeader is not defined
+log_id: b8ad6e73-dfc6-4171-9c03-3aea77b7eac1 log_time: 2024/03/20-13:14:16 log_message: ReferenceError authHeader is not defined
+log_id: d7194d36-ca52-46aa-82cb-ff5b8d6df4fc log_time: 2024/03/20-13:14:19 log_message: ReferenceError authHeader is not defined
+log_id: 99bfbbad-dbcd-4313-a0c7-b64102243690 log_time: 2024/03/20-13:14:40 log_message: ReferenceError authHeader is not defined
+log_id: 8659f607-5a7b-4469-b649-880fd8383996 log_time: 2024/03/20-13:14:41 log_message: ReferenceError authHeader is not defined
+log_id: a4850dd9-0a59-42a3-9513-9a48e03ec4fc log_time: 2024/03/20-13:14:58 log_message: ReferenceError authHeader is not defined
+log_id: 6b6f0570-b09b-4236-a9d4-71f6d2276836 log_time: 2024/03/20-13:14:58 log_message: ReferenceError authHeader is not defined
+log_id: b6558bf8-3c29-477a-ba5d-8bcc120e3c3b log_time: 2024/03/20-13:15:04 log_message: ReferenceError authHeader is not defined
+log_id: 227876a7-d1d8-4b7c-823c-2f853bb04981 log_time: 2024/03/20-13:15:31 log_message: ReferenceError authHeader is not defined
+log_id: 720ae4bb-7ac1-4ed2-bd5c-6b22e031ba7e log_time: 2024/03/20-13:15:31 log_message: ReferenceError authHeader is not defined
+log_id: 1e516aa7-e481-4f9d-9349-93a21dba4e35 log_time: 2024/03/20-13:15:41 log_message: ReferenceError authHeader is not defined
+log_id: 48e7e53a-c48c-42c4-a9c7-35470dea55df log_time: 2024/03/20-13:15:41 log_message: ReferenceError authHeader is not defined
+log_id: 3b22b06c-bedf-4292-be9f-d1bad7229631 log_time: 2024/03/20-13:15:42 log_message: ReferenceError authHeader is not defined
+log_id: 0f06829d-6f01-4676-9b2f-152ecfe77929 log_time: 2024/03/20-13:15:42 log_message: ReferenceError authHeader is not defined
+log_id: 36099a76-31ba-4959-9122-cea1526e6a2f log_time: 2024/03/20-13:15:42 log_message: ReferenceError authHeader is not defined
+log_id: 8bede86d-4526-4364-bb6d-41180d683858 log_time: 2024/03/20-13:15:43 log_message: ReferenceError authHeader is not defined
+log_id: 4647bdf9-537c-4144-a29f-89c9e289332f log_time: 2024/03/20-13:15:43 log_message: ReferenceError authHeader is not defined
+log_id: 6e8dc1e5-2ffa-433e-a5cc-31350875fd57 log_time: 2024/03/20-13:15:43 log_message: ReferenceError authHeader is not defined
+log_id: 6df0b910-e8bb-4b7b-9697-28800ddde403 log_time: 2024/03/20-13:15:45 log_message: ReferenceError authHeader is not defined
+log_id: 9b05a580-74ec-41f6-8cd4-29588527193e log_time: 2024/03/20-13:15:45 log_message: ReferenceError authHeader is not defined
+log_id: b982ebff-7c20-4f55-a2e8-fc893fdf3f76 log_time: 2024/03/20-13:15:45 log_message: ReferenceError authHeader is not defined
+log_id: dc56726d-27b8-4913-8384-906ffd52ede0 log_time: 2024/03/20-13:15:45 log_message: ReferenceError authHeader is not defined
+log_id: e11bf1c7-2e27-43c4-9182-8ff6184121db log_time: 2024/03/20-13:16:00 log_message: ReferenceError authHeader is not defined
+log_id: 65def3b4-d7dc-465c-ad74-627b42c0ead7 log_time: 2024/03/20-13:16:18 log_message: ReferenceError authHeader is not defined
+log_id: fde5b378-f856-4a9d-a9b7-24a441d8b52b log_time: 2024/03/20-13:16:51 log_message: ReferenceError authHeader is not defined
+log_id: dc6841cb-8b49-4abf-8791-a7cc07df6dd0 log_time: 2024/03/20-13:17:37 log_message: ReferenceError authHeader is not defined
+log_id: d0f8f72d-aefe-48a7-8977-7a0c962c7ae3 log_time: 2024/03/20-13:19:34 log_message: ReferenceError authHeader is not defined
+log_id: 944a7fa6-2d12-4354-94a2-126cb00c64fc log_time: 2024/03/20-13:19:39 log_message: ReferenceError authHeader is not defined
+log_id: 1d6b9293-93d1-4fee-87b7-2657f1a500a6 log_time: 2024/03/20-13:19:55 log_message: ReferenceError authHeader is not defined
+log_id: 565b9ce8-5e07-4ede-ad47-73609a8dc4ed log_time: 2024/03/20-13:20:02 log_message: ReferenceError authHeader is not defined
+log_id: 4d89d561-71f1-435d-a91f-345b16fe4ec2 log_time: 2024/03/20-13:20:44 log_message: ReferenceError authHeader is not defined
+log_id: 129e7d89-9776-48d5-8e29-4eff3b368f5a log_time: 2024/03/20-13:24:52 log_message: ReferenceError authHeader is not defined
+log_id: c5674ecb-fc72-43c0-8372-517d05be7270 log_time: 2024/03/20-13:27:05 log_message: ReferenceError authHeader is not defined
+log_id: 46e5d1ef-7c8c-4348-86f9-0462616dcf2f log_time: 2024/03/20-13:27:37 log_message: ReferenceError authHeader is not defined
+log_id: fea9ea4a-c742-4226-a4e8-c45f990d6b48 log_time: 2024/03/20-13:27:39 log_message: ReferenceError authHeader is not defined
+log_id: ead63343-0f66-486c-9bec-50f899c97c7a log_time: 2024/03/20-13:29:27 log_message: ReferenceError authHeader is not defined
+log_id: d61bfcfc-f5f7-427c-9711-13d5c55645ea log_time: 2024/03/20-13:29:52 log_message: ReferenceError authHeader is not defined
+log_id: 7e0bbacd-0028-4483-b904-7ae78adf432d log_time: 2024/03/20-13:30:00 log_message: ReferenceError authHeader is not defined
+log_id: 46c3aa60-c69a-4a7e-b46d-cc1f98aedfc4 log_time: 2024/03/20-13:34:33 log_message: ReferenceError authHeader is not defined
+log_id: 15831bf3-6bcf-426d-8fbc-62de6fd1a6d9 log_time: 2024/03/20-13:34:42 log_message: ReferenceError authHeader is not defined
+log_id: c975312d-2b0f-4276-a7a3-87b7e967d96f log_time: 2024/03/20-13:34:49 log_message: ReferenceError authHeader is not defined
+log_id: 9c31be09-f19a-4274-ad1e-7ea28c1e0261 log_time: 2024/03/20-13:34:49 log_message: ReferenceError authHeader is not defined
+log_id: b33b4cdb-39e3-413a-b799-c8021179bebe log_time: 2024/03/20-13:35:00 log_message: ReferenceError authHeader is not defined
+log_id: fd0211f8-730a-40fe-8b67-c609f60e3dbf log_time: 2024/03/20-13:35:00 log_message: ReferenceError authHeader is not defined
+log_id: 90e2256d-2e5d-437b-8a27-b7c396f65e33 log_time: 2024/03/20-13:35:01 log_message: ReferenceError authHeader is not defined
+log_id: 65679bab-f094-40cd-ad7e-1628233a13b8 log_time: 2024/03/20-13:35:11 log_message: ReferenceError authHeader is not defined
+log_id: b8bc6e9f-f8da-4945-b9d1-cff4ec0ad854 log_time: 2024/03/20-13:35:12 log_message: ReferenceError authHeader is not defined
+log_id: c61ba971-9329-428c-a10e-c908fab4618a log_time: 2024/03/20-13:36:14 log_message: ReferenceError authHeader is not defined
+log_id: 78775237-00d4-4c50-95da-b0c7a48d9beb log_time: 2024/03/20-13:36:14 log_message: ReferenceError authHeader is not defined
+log_id: a252e3f4-ea25-4c3d-8141-540039004780 log_time: 2024/03/20-13:37:12 log_message: ReferenceError authHeader is not defined
+log_id: ba0e374b-3e34-433d-8761-9cf1d57e39f6 log_time: 2024/03/20-13:37:19 log_message: ReferenceError authHeader is not defined
+log_id: 410036d1-b82b-48f5-8528-421259c83f5e log_time: 2024/03/20-13:37:21 log_message: ReferenceError authHeader is not defined
+log_id: bf72124a-1956-41c6-8032-8be78d9692c3 log_time: 2024/03/20-14:20:52 log_message: ReferenceError authHeader is not defined
+log_id: 16900dc7-79e5-463a-9df2-8bda9fe95afb log_time: 2024/03/20-14:20:54 log_message: ReferenceError authHeader is not defined
+log_id: 3c4bc301-da93-4465-93f4-54082a454ee6 log_time: 2024/03/20-14:21:03 log_message: ReferenceError authHeader is not defined
+log_id: 248a0649-598b-44f3-ab35-e4f71d2e463e log_time: 2024/03/21-17:11:41 log_message: Error Can't set headers after they are sent.
+log_id: f5ba233e-6789-4f11-8a6a-c884caf28b41 log_time: 2024/03/22-11:58:56 log_message: TypeError authHeader?.startWith is not a function
+log_id: 22270f2c-5c9c-492f-9fe4-969f188ab200 log_time: 2024/03/26-13:31:06 log_message: SyntaxError Expected double-quoted property name in JSON at position 52 (line 5 column 1)
+log_id: c6e002f2-00f6-4e5c-8151-54460e4e7b66 log_time: 2024/03/26-23:55:41 log_message: SyntaxError Expected ',' or '}' after property value in JSON at position 24 (line 3 column 14)
+log_id: fbe613ab-4f77-4c9d-b512-286e064368ef log_time: 2024/03/26-23:56:27 log_message: SyntaxError Expected ',' or '}' after property value in JSON at position 24 (line 3 column 14)
+log_id: 56966b88-c272-4aee-918c-614335a812f0 log_time: 2024/03/26-23:56:30 log_message: SyntaxError Expected ',' or '}' after property value in JSON at position 24 (line 3 column 14)
+log_id: ca3da31c-208d-4c53-8ed6-7c63b1a2940a log_time: 2024/03/26-23:56:30 log_message: SyntaxError Expected ',' or '}' after property value in JSON at position 24 (line 3 column 14)
+log_id: 9d284c5b-43bf-47fc-a0f9-dd5f0c37e71f log_time: 2024/03/27-00:02:51 log_message: SyntaxError Expected ',' or '}' after property value in JSON at position 15 (line 2 column 14)
+log_id: 1de522fd-0885-4c93-ac8e-55814280fa6d log_time: 2024/03/27-00:02:58 log_message: SyntaxError Expected ',' or '}' after property value in JSON at position 15 (line 2 column 14)
+log_id: 52899ec3-5f82-44df-b2b4-a1f054c76f99 log_time: 2024/03/27-00:02:59 log_message: SyntaxError Expected ',' or '}' after property value in JSON at position 15 (line 2 column 14)
+log_id: 66205e43-ffbf-4abf-ba44-5e56e8f83182 log_time: 2024/03/28-17:04:00 log_message: Error Not allowed by COORS
+log_id: 387a8218-2d5d-4a74-aa49-f521950872f1 log_time: 2024/03/28-17:04:44 log_message: SyntaxError "[object Object]" is not valid JSON
+log_id: 22a3e13b-eebd-4bc8-b3e0-325db6aa8b93 log_time: 2024/04/03-15:33:19 log_message: SyntaxError Unexpected token 'n', "#" is not valid JSON

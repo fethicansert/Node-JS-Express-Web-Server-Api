@@ -1,126 +1,78 @@
-const data = {
-    employees: require('../model/employee.json'),
-    setEmployeess: function(data){ this.employees = data }
-};
+const Employee = require('../model/Employee');
 
-// console.log(data.employees);
-
-const getAllEmployees = (req, res) => { //get all employess from database 
-    // console.log("GET METHOD");
-    res.json(data.employees);
+//get all employess from emp colloection
+const getAllEmployees = async (req, res) => { 
+    const employees = await Employee.find({}); 
+    if(!employees) return res.status(204).json({ message: "No employees found." });
+    res.json(employees);
 }
 
-const createNewEmployee = (req, res) => {  //post new employee to database
-    const newEmployee = {
-        "id" : data.employees[data.employees.length - 1].id + 1 || 1,
-        "firstname" : req.body.firstname,
-        "lastname" : req.body.lastname,
-        "age" : req.body.age 
-    }
-    
-    //I have to use return otherwise function continue
-    //Than gives error beacuse cannot set headers after they are sent to the client
+const createNewEmployee = async (req, res) => {  //post new employee to database
+
     if(!req.body.firstname || !req.body.lastname || !req.body.age){
-        return res.status(400).json({"message": "Something missing !!!"});
-    }                                                                       
+        return res.status(400).json({ "message": "Missing data." });
+    }    
 
-    data.setEmployeess([...data.employees, newEmployee]);
-
-    res.status(201).json(data.employees); //If I don't use return in if statement Cannot set headers after they are sent to the client
-}
-
-const updateEmployee = (req, res) => {
-
-    //How course did!!!
-
-    // const employee = data.employees.find(emp => emp.id === parseInt(req.body.id));
-    
-    // if(!employee) {
-    //     return res.status(400).json({ "message": `Employee id: ${req.body.id} not found in the database` });
-    // }
-    // if(req.body.firstname) employee.firstname = req.body.firstname;
-    // if(req.body.lastname) employee.lastname = req.body.lastname;
-    // if(req.body.age) employee.age = req.body.age;
-    // //Better to parseInt maybe id come as String
-    // const filteredArr = data.employees.filter(emp => emp.id !== parseInt(req.body.id));
-    // const unsortedArr = [...filteredArr, employee];
-    // data.setEmployeess(unsortedArr.sort((a, b) => a.id > b.id ? 1 : a.id < b.id ? -1 : 0));
-
-    // res.json(data.employees);
-
-    //////   How I did !!!!
-    const isValidId = data.employees.find(emp => emp.id === req.body.id);
-
-    if(!isValidId) {
-        return res.status(400).json({ "message": `Employee id: ${req.body.id} not found in the database` });
-    }
- 
-    if(!req.body.firstname || !req.body.lastname || !req.body.age) {
-        return res.status(400).json({"message": "Something missing !!!"});
-    } else {
-        const updatedEmployees = data.employees.map(employee => {
-            if(employee.id === req.body.id){
-                employee.firstname = req.body.firstname;
-                employee.lastname = req.body.lastname;
-                employee.age = req.body.age;
-            }
-    
-            return employee;
+    try {
+        const result = await Employee.create({
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            age: req.body.age
         });
+        res.status(201).json(result); 
+    } catch(e) {
+        console.log(e);
+    }  
+}
+
+const updateEmployee = async (req, res) => {
+
+    //check if emp id recieved from request body
+    if(!req?.body?.id) return res.status(400).json({ error: "ID parameter required" });
+
+    //check if find emp with given id
+    const employee = await Employee.findOne({ _id: req.body.id }).exec();
+    if(!employee) return res.status(204).json({ message : `No employee matched ID ${req.body.id}` });
     
-        data.setEmployeess(updatedEmployees);
-        res.json(data.employees);    
-    }
+    //checj if firstname lastname and age recieved from request body
+    if(req?.body?.firstname) employee.firstname = req.body.firstname;
+    if(req?.body?.lastname) employee.lastname  = req.body.lastname;
+    if(req?.body?.age) employee.age = req.body.age;
+
+    const result = await employee.save();
+    res.json(result);
 }
 
-const deleteEmployee = (req, res) => {
-    //How course did
-    if(!data.employees.length) {
-        return res.json({"message:" : "No Employees Left You Fire Them All BOSS!!"});
-    }
+const deleteEmployee = async (req, res) => {
+    
+    if(!req.body.id) return res.status(400).json({ error: 'ID parameter required' });
 
-    const employee = data.employees.find(emp => emp.id === parseInt(req.body.id));
+    // const result = await Employee.findByIdAndDelete(req.body.id).exec();
+    // if(!result) return res.status(400).json({ message: "User Not Founded" })
 
-    if(!employee){
-        return res.status(400).send({"message": `Employee id: ${req.params.id} not found in the database`});
-    }
+    const employee = await Employee.findById(req.body.id).exec();
+    if(!employee) return res.status(204).json({ message : `No employee matched ID ${req.body.id}` });
 
-    const filteredArr = data.employees.filter(emp => emp.id !== employee.id);
-    data.setEmployeess([...filteredArr]);
-    res.json(data.employees);
-
-    //How I did
-    // const isValidId = data.employees(emp => emp.id === req.body.id);
-
-    // if(!isValidId){
-    //     return res.status(400).json({"message": "Id is Not Valid"});
-    // }
-
-    // const deletedEmployees = data.employees.filter(employee => employee.id !== req.body.id);
-    // data.setEmployeess(deletedEmployees);
-    // res.json(data.employees);
+    const result = await Employee.deleteOne({ _id: req.body.id });
+    
+    res.status(200).json(result);
+   
 }
 
+const getEmployee = async (req, res) => {
+    console.log(req?.params?.id);
+    if(!req?.params?.id)  return res.status(400).json({ error: 'ID parameter required'  });
 
-const getEmployee = (req, res) => {
-    const employee = data.employees.find(emp => emp.id === parseInt(req.params.id));
-    if(!employee){
-        return res.status(400).json({"message": `Employee id: ${req.params.id} not found in the database`})
-    }
+    const employee = await Employee.findById(req.params.id).exec();
+    if(!employee) return res.status(400).json({"message": `Employee id: ${req.params.id} not found in the database`});
+
     res.json(employee);
 } 
 
-
-const deleteAll  = (req, res) => {
-    const arr = [];
-    data.setEmployeess(arr);
-    res.json(data.employees);
-}
 module.exports = { 
         getAllEmployees, 
         createNewEmployee, 
         updateEmployee, 
         deleteEmployee, 
-        getEmployee,
-        deleteAll
+        getEmployee
 };

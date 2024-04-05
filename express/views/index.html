@@ -7,6 +7,172 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>index page</h1>
+    <h1 class="title">Form Page</h1>
+
+    <form>
+        <div class="input-group">
+            <label for="username">Username</label>
+            <input class="username" id="username" type="text" required autofocus>
+        </div>
+
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input id="password" type="password" required> 
+        </div>
+
+        <div class="button-group">
+            <button id="signinBtn" type="button">Sign in</button>
+            <button id="loginBtn" type="button">Login</button>
+            <button id="logoutBtn" type="button">Logout</button>
+        </div>
+<!-- 
+        <button id="getEmployeesBtn" type="button" class="get-employees-btn">Get Employees</button> -->
+
+    </form>
+
+
+    <script>
+
+        const registerButton = document.getElementById('signinBtn');
+        const authButton = document.getElementById('loginBtn');
+        const logoutButton = document.getElementById('logoutBtn');
+
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+
+        // const getEmployeesBtn = document.getElementById('getEmployeesBtn');
+  
+
+        let accessToken = '';
+        //user register login refresh logout 
+        registerButton.addEventListener('click', signinUser);
+        authButton.addEventListener('click', loginUser)
+        logoutButton.addEventListener('click', logoutUser);
+
+
+        //Register User
+        async function signinUser() {
+
+            if(!inputValidation()) return;
+
+            const headerList = {
+                "Content-Type": "application/json"
+            }
+
+            const bodyContent = JSON.stringify({
+                user: usernameInput.value,
+                pwd: passwordInput.value
+            });
+
+            try{
+                const response = await fetch('http://localhost:3166/register', {
+                    method: "POST",
+                    headers: headerList,
+                    body: bodyContent
+                });
+                if(response.status === 409) throw new Error('Username Already Taken!!!');
+                const data = await response.json();
+                alert(data.message);
+            } catch(err) {
+                alert(err.message);
+            }
+        };
+
+        //Auth User
+        async function loginUser() {
+
+            if(!inputValidation()) return;
+
+            const headerList = {
+                "Content-Type": "application/json"
+            }
+        
+            const bodyContent = JSON.stringify({
+                user: usernameInput.value,
+                pwd: passwordInput.value
+            });
+
+            try {
+                const response = await fetch('http://localhost:3166/auth', {
+                    method: "POST",
+                    headers: headerList,
+                    body: bodyContent
+                });
+                if(!response.ok) throw new Error("Username or Password Wrong!");
+                const data = await response.json();
+                accessToken = data.accessToken;
+                localStorage.setItem("username", data.username);
+                console.log(data);
+                console.log(accessToken);
+                location.href = 'http://localhost:3166/main';
+            } catch(err) {
+                alert(err.message)
+            }
+        };
+
+
+        //Refresh JWT Access Token
+        async function refreshToken(){
+            try {
+                const response = await fetch('http://localhost:3166/refresh',{
+                    method:"GET"
+                });
+                if(!response.ok) throw new Error("Something Went Wrong"); //Error throw attin catch yakalayacak alt satira gecmeyecek!
+                const data = await response.json();
+                accessToken = data.accessToken;
+                console.log(accessToken);
+            } catch(err) {
+                console.log(err)
+                alert("Login Please");
+            }
+        }
+
+        //Logout
+        async function logoutUser() {
+            try {
+                const response = await fetch('http://localhost:3166/logout', {
+                    method: "POST"
+                });
+                if(response.ok) accessToken = '';
+            } catch(err) {
+                console.log(err.message);
+            }
+        }
+
+        //Validate Inputs
+        function inputValidation() {
+            if(!usernameInput.value || !passwordInput) {
+                alert('Username and password requried!');
+                return false;
+            } else {
+                return true;
+            }
+        };
+
+
+        async function fetchEmployees() {
+            const headerList = {
+                "Accept": "application/json",
+                "Authorization" : `Bearer ${accessToken}`
+            };
+            
+            try {
+                const response = await fetch('http://localhost:3166/employees',{
+                    method: "GET",
+                    headers: headerList
+                });
+                console.log(response);
+                if(response.status === 401) throw new Error('Anauthorized Please Login');
+                const data = await response.json();
+                console.log(data);
+            } catch(err) {
+                console.log(err.message);
+                alert(err.message)
+            }
+        };
+
+
+
+    </script>
 </body>
 </html>

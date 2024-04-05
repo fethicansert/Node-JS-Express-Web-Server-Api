@@ -1,7 +1,40 @@
 body{
     background-color: lightseagreen;
-    text-align: center;
-    font-size: 2rem;
     color: whitesmoke;
-    text-transform: uppercase;
+    height: 100vh;
+}
+
+.title{
+    font-size: 3rem;
+    text-align: center;
+}
+
+form{
+    padding: 2rem;
+    font-size: 1.7rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.input-group{
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    margin-bottom: .5rem;
+}
+
+.button-group{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+button{
+    font-size: 1.2rem;
+    padding: .5em 3em;
+    cursor: pointer;
+}
+
+.get-employees-btn{
+    margin-top: 1rem;
+    width: 100%;
 }

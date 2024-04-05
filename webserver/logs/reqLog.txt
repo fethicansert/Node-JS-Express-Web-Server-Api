@@ -1,6 +1,0 @@
-Log id: 1e35e7ea-e34e-4f21-ba2b-04b07b4f819c Log date: 2024/02/22-11:10:52 Request URL:/new-page.html Request Method:GET 
-Log id: b3ef82ca-6a8c-4b37-9ec2-34071524e19f Log date: 2024/02/22-11:12:21 Request URL:/new-page.html Request Method:GET 
-Log id: 88d8238c-06f5-43eb-b065-bc58bb93456e Log date: 2024/02/22-11:12:57 Request URL:/new-page.html Request Method:GET 
-Log id: d99989aa-541f-40db-9aa7-39640ffe809b Log date: 2024/02/22-11:16:12 Request URL:/new-page.html Request Method:GET 
-Log id: 5ce898a8-cf7d-4608-ae27-221b4ae77d0a Log date: 2024/02/22-11:17:21 Request URL:/new-page.html Request Method:GET 
-Log id: e997d283-f954-492d-ba61-341f5327abcc Log date: 2024/02/22-11:17:31 Request URL:/new-page.html Request Method:GET 

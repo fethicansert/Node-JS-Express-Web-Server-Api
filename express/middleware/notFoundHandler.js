@@ -6,7 +6,7 @@ const notFoundHandler = (req, res) => {
     if(req.accepts('html')){
         res.sendFile(path.join(__dirname, '..', 'views', '404.html')); //req accepts html
     } else if(req.accepts('json')) {   //req accepts json 
-        res.json({error: "404 Not Found"});
+        res.sendStatus(404);
     } else {
         res.type('txt').send('404 Not Found'); //req accepts json 
     }

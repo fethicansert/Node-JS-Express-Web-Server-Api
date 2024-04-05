@@ -1,3 +1,4 @@
+require('dotenv').config(); // Loads .env file contents into process.env
 const express = require('express');
 const app = express();         //Create express application
 const path = require('path');
@@ -6,11 +7,25 @@ const  { logger }  = require('./middleware/logEvents');
 const errorHandler = require('./middleware/errorHandler');
 const corsOptions = require('./config/corsOptions');
 const notFoundHandler = require('./middleware/notFoundHandler');
+const verifyJWT = require('./middleware/veriyfJWT');
+const cookieParser = require('cookie-parser');
+const credentials = require('./middleware/credentials');
+// const verifyLogin = require('./middleware/verifyLogin');
 const PORT = process.env.PORT || 3166;
+const mongoose = require('mongoose');
+const connectDB = require('./config/dbConn');
 
+
+//Connect to MongoDB 
+connectDB();
 
 //write all request logs 
 app.use(logger);
+
+//Bunu tam anlamadim CORS'la ilgili bi problem icin olmasi lazim yorum satiri birakacam hata cikarsa normale cevir!!!
+//Handle options credential check - before CORS
+//and fetch cookies credentials requirment
+app.use(credentials);
 
 //enable all CORS(Cross Orgin Resource Sharing) request which orgins in whitelist
 app.use(cors(corsOptions)); 
@@ -21,14 +36,34 @@ app.use(express.urlencoded({ extended: false }));
 //serve json files => parses request body
 app.use(express.json());
 
+//Parse to Cookie, than we can use it like => req.cookies
+app.use(cookieParser());
+
 //serve static files like css image and javascript file => it's use serve-static node package
 app.use('/', express.static(path.join(__dirname, 'public'))); 
 
-//routing all request comging to  root '/' => localhost:8000/ = localhost:8000/new-page ...
+//routing request comging to  root '/' => localhost:8000/ = localhost:8000/new-page ...
 app.use('/', require('./routes/root')); 
 
-//routin all request coming to employees
-app.use('/employees', require('./routes/api/employees')); 
+//routing request coming to 'www.domain.com/register'
+app.use('/register', require('./routes/register'));
+
+//routing request coming to 'www.domain.com/auth'
+app.use('/auth', require('./routes/auth'));
+
+//refresh access token
+app.use('/refresh', require('./routes/refresh'));
+
+//logout (deleting access token from client and refresh token in cookies on browser)
+app.use('/logout', require('./routes/logout'));
+
+
+app.use('/users',verifyJWT, require('./routes/api/users'));
+
+// verify accesstoken  for API
+
+//routing request coming to 'www.domain.com/employees'
+app.use('/employees', verifyJWT, require('./routes/api/employees')); 
 
 //we use .all instead .use beaucse .all for routing and  for all methods(get,post,put and delete)
 //checks all type of requsts if request url not macth to routers send '404 Not Found '
@@ -36,7 +71,12 @@ app.all('*', notFoundHandler);
 
 app.use(errorHandler);
 
-app.listen(PORT ,() => console.log(`Server running on port ${PORT}`));
+//if connected to mongoDB than we start to listen request on server === > once yani bir kez dinle on olsa hep dinleyecek
+mongoose.connection.once('open', () => {
+    console.log("Connected to MongoDB");
+    app.listen(PORT ,() => console.log(`Server running on port ${PORT}`));
+})
+
 
 
 //? What happend if requested file not found ?
@@ -226,3 +266,85 @@ app.listen(PORT ,() => console.log(`Server running on port ${PORT}`));
 //When we compare 105 to 18 in string check fisrt '1' to '1' same than '0' to '8',  0 is small than it means 105 small :)
 
 //How arr.some() how .some() works?
+
+//What is 409 statuc code 
+//A 409 status code is used to indicate a conflict with the current state of a resource, 
+//such as when trying to create or update a resource that already exists or has conflicting information.
+
+//What is endpoint ?
+//An endpoint is a URL which allows you to access a (web) service running on a server.
+
+
+//what is JWT => 
+//JWT it's a authorization standart
+//JWT server tarafinda access ve refresh token olusturur
+//access ve refresh token kullaniciya gonderilip orda guvenli bi sekilde depolanir
+//refresh token  ayni zamanda veritabaninda da depolanir
+//kullanici veritabinindaki bir veriye ulasmak istediginde username ve password kontrol edilmez
+//Onun yerine access token kullanilir 
+
+//Explain access token and refresh token
+//access token bi kisa sureli bilet gibi bir seydir o bizde kullanicida kalir ve
+//bi yerden birsey almak istedigimizde onu kullaniriz
+//access token ile servere istek atariz ve o kim oldugumuzu access token ile anlar
+
+
+//How split() works ? //Bolmek ayirmak
+//Split can divide str in the pices and put them in array as array item with giving argument
+//const str = 'hello best warzone player';
+// console.log(str.split(" "));
+
+// const str2 = 'hello-worst-warzone-player';
+// console.log(str2.split('-'));
+
+
+
+//await fsPromises.writeFile(path.join(__dirname, '..', 'model', 'user.json'), userDB.users); 
+//this give me a error why 
+//ERROR
+// The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received an instance of Object
+
+//Answer
+// JSON.stringify(userDB.users)
+
+
+//What is sercure and httpOnly sameSite and maxAge option in res.cookie() method
+
+
+
+// //What Object.values() do ?
+// const user = {
+//     username : "nobody",
+//     password : "yesbody"   
+// };
+
+// console.log(Object.values(user)); => [ 'nobody', 'yesbody' ]
+
+//it takes the all object properties values and put in the array
+
+
+//what str.startWith() do ?
+//checks if str start with given argument
+// const str = 'Bearer 1312casd12321xsz';
+// str.startsWith('Bearer') true
+// str.startsWith('Bearerz') false
+
+
+//What is ? operator optional chanining ?
+// const user = {
+//     username: 'Bob',
+//     age: 25,
+//     address: { //thin address is optional can not be given in user obj
+//         town: 'Lefkosa'
+//     }
+// }
+//when we want to try to access to address propertie of user we can use optinal chaining to not cause an error
+// const user1 = {
+//     username: 'Bob',
+//     age: 25,
+//     //no address properties
+// }
+// user1.address.town will give error can not read properties of undefined beacuse address === undefined
+// we can use ? operator optional chaining
+// user1.address?.town will return undefined beacuse address === undefined
+// address varsa bir sonrakine gec yokse undefined
