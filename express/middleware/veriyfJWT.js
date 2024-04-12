@@ -16,7 +16,6 @@ const verfiyJWT = (req, res, next) => {
         process.env.ACCESS_TOKEN_SECRET,
         (err, decoded) => {
             if(err) return res.status(403).json({ message: "You don't have permission to access this resource" });  //you don't have permission to access this resource' or invalid token
-            console.log(decoded.UserInfo);
             req.user = decoded.UserInfo.username;
             req.roles = decoded.UserInfo.roles;
             next();

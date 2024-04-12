@@ -175,3 +175,11 @@ log_id: 52899ec3-5f82-44df-b2b4-a1f054c76f99 log_time: 2024/03/27-00:02:59 log_m
 log_id: 66205e43-ffbf-4abf-ba44-5e56e8f83182 log_time: 2024/03/28-17:04:00 log_message: Error Not allowed by COORS
 log_id: 387a8218-2d5d-4a74-aa49-f521950872f1 log_time: 2024/03/28-17:04:44 log_message: SyntaxError "[object Object]" is not valid JSON
 log_id: 22a3e13b-eebd-4bc8-b3e0-325db6aa8b93 log_time: 2024/04/03-15:33:19 log_message: SyntaxError Unexpected token 'n', "#" is not valid JSON
+log_id: b68b2151-6ebf-4286-86d8-d7319d2e1255 log_time: 2024/04/06-01:37:59 log_message: Error Not allowed by COORS
+log_id: 96747516-7ef5-44b9-a60c-1a7e5ff4976b log_time: 2024/04/06-01:38:06 log_message: Error Not allowed by COORS
+log_id: 23bc14f1-db2a-4b5c-9deb-65d0a04cbc5e log_time: 2024/04/06-01:38:10 log_message: Error Not allowed by COORS
+log_id: f9e49fe2-51c9-4bc4-a95f-dd93a364da94 log_time: 2024/04/08-16:31:24 log_message: Error Not allowed by COORS
+log_id: ae9d84bd-69d6-4e55-b61f-8b16ff65046f log_time: 2024/04/08-16:31:42 log_message: Error Not allowed by COORS
+log_id: ad3cd3da-1d2e-4694-a031-4b78c2473273 log_time: 2024/04/08-16:32:04 log_message: Error Not allowed by COORS
+log_id: a9db89db-bfd9-4c33-99b6-d194967bc993 log_time: 2024/04/09-03:17:23 log_message: Error Not allowed by COORS
+log_id: a771c3f8-e031-4c10-a7dd-40b09328a8fe log_time: 2024/04/10-22:25:41 log_message: SyntaxError "[object Object]" is not valid JSON

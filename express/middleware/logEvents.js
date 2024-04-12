@@ -22,7 +22,7 @@ const writeLog = async (message, fileName) => {
 }
 
 const logger = (req, res, next) => {
-    // console.log(`${req.method} ${req.path}`);
+    console.log(`${req.method} ${req.path}`);
     writeLog(`${req.method} ${req.headers.origin} ${req.url}`, 'requestLogs.txt');
     next();
 }

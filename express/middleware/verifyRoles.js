@@ -2,6 +2,7 @@ const verifyRoles = (...alowedRoles) => {
     return (req, res, next) => {
         if(!req?.roles) return res.status(401);;
 
+
         const rolesArr = [...alowedRoles];
         console.log(rolesArr);
         console.log(req.roles);

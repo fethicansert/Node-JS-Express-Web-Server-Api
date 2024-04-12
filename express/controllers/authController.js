@@ -4,7 +4,6 @@ const jwt = require('jsonwebtoken');
 
 
 const handleAuth = async (req, res) => {
-    console.log(req.cookies);
     //Check user authorization
     const { user, pwd } = req.body;  //get username and password from request body
 
@@ -13,15 +12,19 @@ const handleAuth = async (req, res) => {
     const foundUser = await User.findOne({ username: user }).exec() //check if user registered
 
     if(!foundUser) return res.status(401).json({error: "Username not founded"}); //Unauthorized
-
+    
     const match = await bcrypt.compare(pwd, foundUser.password); //comparing passwords
 
     if(match) {
         //Create JWT (JSON WEB TOKEN)
-
+        
         //set roles
-        const roles = Object.values(foundUser.roles).filter(Boolean); // .filter(role => Boolean(role)) //Bollean eger deger truthy ise true olacak falsy ise false ve buna gore filternecek
-
+        const roles = Object.values(foundUser.roles).filter(role => {
+            // console.log(role);
+            return Boolean(role)
+        }); // .filter(role => Boolean(role)) //Bollean eger deger truthy ise true olacak falsy ise false ve buna gore filternecek
+        
+        console.log(roles);
         //Creatate Access Token
         const accessToken = jwt.sign(
             { 

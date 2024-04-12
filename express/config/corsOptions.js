@@ -2,7 +2,8 @@
 
 const allowedOrigins = require('./allowedOrigins');
 
-//if requst orgin not in the whitelist give CORS error
+//before real request send to server preflight send to server if CORS option are OK
+//if requst orgin not in the allowedOrgins give CORS error
 const corsOptions = {
     origin:(origin, callback) =>{
         if(allowedOrigins.indexOf(origin) !== -1 || !origin) {

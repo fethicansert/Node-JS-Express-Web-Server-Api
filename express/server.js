@@ -57,13 +57,16 @@ app.use('/refresh', require('./routes/refresh'));
 //logout (deleting access token from client and refresh token in cookies on browser)
 app.use('/logout', require('./routes/logout'));
 
-
-app.use('/users',verifyJWT, require('./routes/api/users'));
-
 // verify accesstoken  for API
 
-//routing request coming to 'www.domain.com/employees'
+//routing request coming to 'www.domain.com/users' API
+app.use('/users',verifyJWT, require('./routes/api/users'));
+
+//routing request coming to 'www.domain.com/employees' API
 app.use('/employees', verifyJWT, require('./routes/api/employees')); 
+
+//routing request coming to 'www.domain.com/traffic-signs' API
+app.use('/traffic-sign-question', require('./routes/api/trafficSignQuestion'));
 
 //we use .all instead .use beaucse .all for routing and  for all methods(get,post,put and delete)
 //checks all type of requsts if request url not macth to routers send '404 Not Found '
