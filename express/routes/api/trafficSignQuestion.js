@@ -9,7 +9,7 @@ router.route('/')
     .delete()
 
 
-router.route('/:id')
-    .get();
+router.route('/:soru')
+    .get(trafficSignQuestionController.getTrafficSignQuestions);
 
 module.exports = router;

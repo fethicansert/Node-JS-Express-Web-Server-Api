@@ -183,3 +183,24 @@ log_id: ae9d84bd-69d6-4e55-b61f-8b16ff65046f log_time: 2024/04/08-16:31:42 log_m
 log_id: ad3cd3da-1d2e-4694-a031-4b78c2473273 log_time: 2024/04/08-16:32:04 log_message: Error Not allowed by COORS
 log_id: a9db89db-bfd9-4c33-99b6-d194967bc993 log_time: 2024/04/09-03:17:23 log_message: Error Not allowed by COORS
 log_id: a771c3f8-e031-4c10-a7dd-40b09328a8fe log_time: 2024/04/10-22:25:41 log_message: SyntaxError "[object Object]" is not valid JSON
+log_id: 9f9ee9e2-9606-4cb3-88e5-f996337fecad log_time: 2024/04/14-01:31:04 log_message: Error Not allowed by COORS
+log_id: 1f2104da-06fd-4bd9-a58d-911d3fa48ec3 log_time: 2024/04/14-01:32:49 log_message: Error Not allowed by COORS
+log_id: 5ffca5a2-bd7a-4545-bcb5-330e6b86469d log_time: 2024/04/14-01:32:51 log_message: Error Not allowed by COORS
+log_id: ac4f9093-9a94-40f5-9e4d-2f4342085a05 log_time: 2024/04/14-01:33:20 log_message: Error Not allowed by COORS
+log_id: 799b3f6c-94da-4649-b3bb-953f889e5a5c log_time: 2024/04/14-01:33:50 log_message: Error Not allowed by COORS
+log_id: a861c2c1-eddc-448a-96af-78b6ee795ad1 log_time: 2024/04/14-01:34:00 log_message: Error Not allowed by COORS
+log_id: dcc3fc76-3f4c-46a7-9620-32fcbeab4f69 log_time: 2024/04/14-01:34:01 log_message: Error Not allowed by COORS
+log_id: 3a265a3e-8b6c-4618-85fb-71807fb8d825 log_time: 2024/04/14-01:34:08 log_message: Error Not allowed by COORS
+log_id: 8670034f-2d0b-4737-bc3a-e312a8a6c1d7 log_time: 2024/04/14-01:34:15 log_message: Error Not allowed by COORS
+log_id: cd7cf053-f7f2-4bdd-bd87-45c802a99dec log_time: 2024/04/14-01:34:43 log_message: Error Not allowed by COORS
+log_id: bb4c2e49-3044-42ad-8024-99178a8d452b log_time: 2024/04/14-01:34:44 log_message: Error Not allowed by COORS
+log_id: 4ecf6219-a165-4352-81fd-d4a9acba1335 log_time: 2024/04/14-01:34:45 log_message: Error Not allowed by COORS
+log_id: b94332ce-e673-41e2-9726-89ea4640330f log_time: 2024/04/14-01:34:46 log_message: Error Not allowed by COORS
+log_id: 4a664769-902d-4bb0-b368-8f95fb33f760 log_time: 2024/04/14-01:35:18 log_message: Error Not allowed by COORS
+log_id: b223b534-17a2-48bd-8092-afe5a5956aaf log_time: 2024/04/14-01:35:20 log_message: Error Not allowed by COORS
+log_id: a774c86b-c5c1-4b5d-a522-fa2bf94d615b log_time: 2024/04/14-01:35:21 log_message: Error Not allowed by COORS
+log_id: 544bb877-1ad8-4c89-8b16-2953f3613c0a log_time: 2024/04/14-01:35:36 log_message: Error Not allowed by COORS
+log_id: d7d914dc-533d-48b7-81ad-9c8014cc94a1 log_time: 2024/04/14-01:35:37 log_message: Error Not allowed by COORS
+log_id: 9e70698f-b368-4a9d-a880-d8f9f24b9b15 log_time: 2024/04/14-01:35:37 log_message: Error Not allowed by COORS
+log_id: 5dc8bc6b-c96d-4985-ac7e-e7c1d9c67a08 log_time: 2024/04/14-01:36:50 log_message: Error Not allowed by COORS
+log_id: b99e6950-9f95-41a8-be23-3f3c668d09fe log_time: 2024/04/14-01:36:50 log_message: Error Not allowed by COORS

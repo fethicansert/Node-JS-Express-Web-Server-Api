@@ -23,7 +23,11 @@ const traficSingQuestionShema = new Schema({
         type: String,
         required: true
     },
-    choices: [choiceShema]
+    choices: [choiceShema],
+    type: {
+        type: String,
+        required: true
+    }
 });
 
 required: true
